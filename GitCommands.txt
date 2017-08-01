@@ -1,0 +1,176 @@
+Basically, what does the action known as "add to the index" mean in Git? I understand it like this: If for any file git calculates SHA-1 sum then basically adding to index means that it calculates SHA-1 sum and add file to the staging area.
+
+git add Test2.java
+git commit Test2.java
+git push
+	fatal: The current branch naveen2 has no upstream branch.
+	To push the current branch and set the remote as upstream, use
+
+		git push --set-upstream origin naveen2
+
+To push a new branch on to remote:
+	git push --set-upstream origin naveen2
+	git push REMOTE --all
+	
+git branch -D naveen2 - to delete from local
+git push origin --delete naveen2 - to delete from remote
+
+git branch -r      - for all
+
+git add Test1.java
+git diff - to list unstaged files
+git diff --cached   - to list staged files
+git diff initialsetup..develop    - to list between tips of braches
+git diff initialsetup..develop    - to list the changes on develop since the time initialsetup was branched out of it.
+git diff --name-status initialsetup..develop
+ 
+git checkout develop
+	error: Your local changes to the following files would be overwritten by checkout:
+			package/scripts/appFile.sh
+			src/apps/LocalSearch/page_main_layout.xml
+	Please, commit your changes or stash them before you can switch branches.
+	Aborting
+
+Pushing changes to develop from sub branch initialsetup
+	git reset --hard
+	git checkout develop
+	git pull
+	git merge initialsetup
+	git push
+
+
+git tag -a 0.8.61 -m "dev build"
+git push --tags
+git tag
+git push origin 0.8.61
+
+If the tag is edited on the server, but the local one is old
+	remove tags from local and then get from remote
+	git tag -d 0.8.61
+	git fetch origin --tags
+To delete a tag and push to remote
+	git tag -d 0.8.62
+	git push --delete origin 0.8.62
+	or 
+		git push origin :tagname
+			Background
+			Pushing a branch, tag, or other ref to a remote repository involves specifying "push where, what source, what destination?"
+				git push where-to-push source-ref:destination-ref
+			A real world example where you push your master branch to the origin's master branch is:
+				git push origin refs/heads/master:refs/heads/master
+			Which because of default paths, can be shortened to:
+				git push origin master:master
+			Tags work the same way:
+				git push origin refs/tags/release-1.0:refs/tags/release-1.0
+			By omitting the source ref (the part before the colon), you push 'nothing' to the destination, deleting the ref on the remote end.
+
+
+
+git commit --amend    # to change the comment on the previous commit.
+git rebase -i   		#rebase interactive
+git reflog 				# is a mechanism to record when the tip of branches are updated. This command is to manage the information recorded in it. Basically every action you perform inside of Git where data is stored, you can find it inside of the reflog.
+git revert HEAD 
+git blame release.sh   	# to see the annotation of changes on a file.
+git rebase -i origin/develop	# rebases all the versions commited on current branch compared with origin/develop.
+
+git log --graph --decorate --oneline
+
+
+tail -f tsh3.log | grep -A 10 --line-buffered  "F5AAEB4E-52F5-4F84-B648-A300D7845D33"
+
+git tag -l
+
+
+
+Create a new branch and checkout 
+	git branch piobeep
+	git checkout piobeep
+
+	force checkout even when there are local changes:
+	git checkout -f branchName
+
+	
+git clone http://naveen.shiraguppi@git.intelematics.com.au/scm/toy/17tsl.git
+git clone ssh://git@git.intelematics.com.au:7999/toy/17tsl.git:whatever
+cd 17tsl
+git checkout develop
+
+naveen.shiraguppi@V01ULPT59 /cygdrive/c/temp/gitkey
+$ ssh-keygen -t rsa -C "Naveen.Shiraguppi@intelematics.com"
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/naveen.shiraguppi/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/naveen.shiraguppi/.ssh/id_rsa.
+Your public key has been saved in /home/naveen.shiraguppi/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:smQd04ZeJDKff5L4aqH+11L9J6C4it+YGtN/77ipPno Naveen.Shiraguppi@intelematics.com
+The key's randomart image is:
++---[RSA 2048]----+
+|      o . .      |
+|       + *       |
+|        * +      |
+|       o B .     |
+|      + S + ..   |
+|     + o.. oo .  |
+|    o o. o.+ . . |
+|     +.=E.=o. . o|
+|    o+BBO*+=o  ..|
++----[SHA256]-----+
+
+1)Ensure the ssh-agent is running:
+	$ eval $(ssh-agent -s)
+	Agent pid 7676
+2)Add your SSH key to the ssh-agent
+	$ ssh-add /home/naveen.shiraguppi/.ssh/id_rsa
+	Enter passphrase for /home/naveen.shiraguppi/.ssh/id_rsa:
+	Identity added: /home/naveen.shiraguppi/.ssh/id_rsa (/home/naveen.shiraguppi/.ssh/id_rsa)
+
+url = ssh://git@git.intelematics.com.au:7999/toy/17tsl.git
+
+sed -n 1026644,1027043p tsh3.log.2017-04-04 > ~/bingmap_error_tsh3.log
+
+RestTshConnector.java
+TSHInterface.java
+
+/cygdrive/c/gitrepo/tshconnector
+$ ant buildAll
+
+Show all branches:
+	git brach -a 
+fetch all of the remote branches
+	git branch -v -a
+check out the branch you are interested in
+
+
+git tag -a <versionNumber>
+git push --tags
+
+git tag -d 0.8.62
+git push --delete origin 0.8.62
+
+$ git push origin --delete <branch_name>
+$ git branch -d <branch_name>
+git reset --hard origin/master
+find . -name "*.jar" -print -exec jar tvf {} \; | less -ni
+
+To change commited message.
+	git commit --amend
+	git push --force
+
+	
+git merge --no-ff release-1.1.0	
+
+
+	export CVSROOT=:pserver:INTELECORP\\naveen.shiraguppi@cvs.intelematics.com.au.local:/IA
+	cvs -d :pserver:INTELECORP\\naveen.shiraguppi@cvs.intelematics.com.au.local:/IA login
+
+	cvs rdiff -s  -r toyotacy13apps_T_3_8_2 -r toyotacy13apps_T_3_8_1 LexusCY13Apps > diffs
+	cvs rdiff -s  -r lexuscy13apps_4_0_0 -r lexuscy13apps_T_3_7_2 LexusCY13Apps > diffs
+	 
+	cvs checkout -r toyotacy13apps_T_3_8_2 LexusCY13Apps
+	cvs checkout -r toyotacy13apps_T_3_8_1 LexusCY13Apps
+	
+	 
+	cvs rdiff -s  -r TSHCommon-2_4 -r TSHCommon-2_8 tshcommon > diffs.txt
+	

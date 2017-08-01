@@ -1,0 +1,71 @@
+4.66 MB (4,896,937 bytes) F10/T
+4.66 MB (4,897,790 bytes) PIO/T
+5.77 MB (6,057,435 bytes) PIO/L
+ 
+ 
+ hscommunicator.ujml
+ 
+ ls -la **/**/*_files/**/*.png  | awk '{print $10 " " $11 " " $12 " " $13 " " $14}' | awk -F '/' '{print $1"/"$2"/"$3"/"$4}'  > images.txt
+
+ grep --include=\*.layout.xml -rnw './' -e "imageurl="
+ 
+ cat file_having_query | awk '{system("grep " $1 " file_to_be_greped")}'
+ 
+ cat images.txt | awk '{system("grep --include=\*layout.xml -rnw '.' -e \"" $1 "\"")}'
+ 
+ grep --include=\*layout.xml -rnw '.' -e "imageurl="
+ 
+cat images.txt | awk '{ print $1 system("grep --include=\\*.xml -rnw '.' -e \"" $1 "\" | wc")}' > match.txt
+
+ grep --include=\*layout.xml -rnw '.' -e "toyota_files/assets/today_notavailable.png"
+ grep --include=\*layout.xml -rnw '.' -e "Concierge/lexus_files/assets/appIcon_selected.png"
+ 
+      [echo] Parameters //v01pbld01/ToyotaHUAppsArchive/build/lib/17TSL/toyota ./releaseInfo 0.7.2 0.7.3
+	  
+<deleteFiles><file><url>/folder1/file1.txt</url></file><file><url>/folder1/file2.txt</url></file></deleteFiles>
+find ./release/*/update*.xml -type f -exec sed -i 's/<deleteFiles/>//g' {} +
+find ./release/*/update*.xml -type f -exec sed -i 's/<deleteFiles\/>
+find ./$toVersion/$fromVersion/data/*.xml -type f -exec sed -i 's/<fromVersion>/'$fromVersion'/g' {} +
+
+deletedFilesValue=`cat $appZipDir/deleteFiles.xml`
+deletedFilesValue=`cat ./release/custom/deleteFiles.xml`
+deletedFilesValue=$(<./release/custom/deleteFiles.xml)
+
+pngcrush_1_8_8_w64.exe -e _compressed.png assets/left.png
+ ./pngcrush_1_8_8_w64.exe -ow <file>
+ 
+
+ls -la ./**/*.png  | awk '{print $10 " " $11 " " $12 " " $13 " " $14}' | awk -F '/' '{print $1"/"$2"/"$3}'  > images.txt
+
+ 
+find . | grep "apps.*\.png" | awk '{system("echo " $1 )}'
+find . | grep "apps/Weather/toyota_files/.*\.png" | awk '{system("/cygdrive/c/temp/pngcrush_1_8_8_w64.exe -ow " $1 )}'
+
+find . | grep "apps.*\.png" | awk '{system("/cygdrive/c/temp/pngcrush_1_8_8_w64.exe -ow " $1 )}'
+
+find src/apps -name "*.png"  | xargs -n1 /cygdrive/c/temp/pngcrush_1_8_8_w64.exe -ow
+find src/apps -name "*.png"  -exec /cygdrive/c/temp/pngcrush_1_8_8_w64.exe -ow {} \;
+
+find data.xml -type f -exec sed -i 's/<deleteFiles/>//g' {} +
+
+curl -s https://dataservices.sunatraffic.com.au/SunaDataServices?key=7e35cc64-0678-309e-99e3-918c7dbfd016 | grep WeatherRadarFeed | wc -l | awk '{if($1 == 1) print "radar feed available"}'
+
+find -name "*.sql"  -exec sqlcmd -S v01ssql02.intelematics.com.au.local -d tsh_tt -E -i {} \;
+
+export CVSROOT=":pserver:INTELECORP\\naveen.shiraguppi@cvs.intelematics.com.au.local:/IA"
+cvs -d ":pserver:INTELECORP\\naveen.shiraguppi@cvs.intelematics.com.au.local:/IA" login
+cvs checkout -r tshdb_20160615 tshdb
+
+sqlcmd -S v01ssql02.intelematics.com.au.local -d tsh_tt -E -i "./storedprocedures/DestinationDownload/DestinationAddFavourite.sql"
+
+grep -r -n -i --include="*.html *.php *.js" searchstrinhere .
+grep -r -n -i --include="dbpool-config.xml" v01ssql02 .	
+
+export CVSROOT=:pserver:INTELECORP\\naveen.shiraguppi@cvs.intelematics.com.au.local:/IA
+cvs -d :pserver:INTELECORP\\naveen.shiraguppi@cvs.intelematics.com.au.local:/IA login
+cvs checkout -r tshdb_20160615 tshdb
+find -name "*.sql"  -exec sqlcmd -S v01ssql02.intelematics.com.au.local -d tsh_tt -E -i {} \;
+
+cvs tag -d temp_tag  EventLogClear.sql
+
+awk '{ if($3 ~ "dwld\/TOYOTA\/")ips[$2]++;} END{ for(i in ips) print i " , " ips[i];}' serverAccess.log.2017-07-28 > todayaccess2.csv
